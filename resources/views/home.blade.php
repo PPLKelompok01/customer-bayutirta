@@ -120,15 +120,32 @@
   <!-- End : Service -->
 
   <!-- Status Service -->
-  <!-- <div class="service-check">
-    <h2>SERVICE CHECK</h2>
-    <div class="form-group">
-      <form action="/status" method="GET">
-        <input type="text" name="status" class="form-control" id="invoiceNumber" placeholder="Enter Invoice Number">
+  <section class="py-5">
+    <div class="container">
+      <div class="row justify-content-center mb-4">
+        <div class="col-lg-6 text-center">
+          <div class="transaction-title">
+              <h2 class="font-jakarta">Cek Status Servis Anda</h2>
+              <p class="font-jakarta">Masukkan nomor invoice atau ID servis Anda untuk melacak status terbaru dari perangkat yang sedang kami tangani.</p>
+            </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+      <div class="col-md-10 col-lg-8">
+        <form action="/status" method="GET" class="needs-validation" novalidate>
+          <div class="input-group input-group-lg mb-3">
+            <span class="input-group-text bg-white border-end-0">
+              <i class="bi bi-receipt-cutoff text-primary"></i>
+            </span>
+            <input type="text" name="status" class="form-control border-start-0" placeholder="Masukkan Nomor Invoice / ID Service" required>
+            <button class="btn btn-primary px-4 transition-hover" type="submit">Cek Status</button>
+          </div>
+        </form>
+      </div>
     </div>
-    <button type="submit" class="btn btn-primary">SEARCH</button>
   </div>
-  </form> -->
+</section>
   <!-- End : Status Service -->
 
   <!-- Transaction -->
@@ -211,7 +228,7 @@
   <!-- End : Transaction -->
 
   <!-- Part -->
-  <!-- <section class="part">
+  <section class="part">
     <div class="container">
       <div class="part-title">
         <h2 class="font-jakarta">Layanan Kami</h2>
@@ -264,7 +281,7 @@
 
       </div>
     </div>
-  </section> -->
+  </section>
   <!-- End : Part -->
 
   <!-- Working -->
