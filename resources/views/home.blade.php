@@ -575,91 +575,74 @@
   <!-- End : devices -->
 
   <!-- consultation -->
-  <!-- <div class="consultation" id="consultation">
-      <div class="container">
-        <div class="row justify-content-lg-between">
-          <div class="col-xl-5">
-            <div class="consultation-title">
-              <h2 class="font-jakarta">Perbaiki Handphonemu dengan Reservasi layanan!</h2>
-            </div>
-            <div class="consultation-image">
-              <img src="{{ url('images/form.png') }}" alt="phone">
-            </div>
+  <div class="consultation" id="consultation">
+    <div class="container">
+      <div class="row justify-content-lg-between">
+        <div class="col-xl-5">
+          <div class="consultation-title">
+            <h2 class="font-jakarta">Perbaiki Handphonemu dengan Reservasi layanan!</h2>
           </div>
-          <div class="col-xl-6">
-            <form action="/reservasi" method="POST" enctype="multipart/form-data">
-              {{ csrf_field() }}
-              <div class="consultation-form">
-                <div class="form">
-                  <label for="name">Nama <span>*</span></label>
-                  <div class="input">
-                    <input type="text" name="name" placeholder="Masukkan nama kamu">
-                  </div>
-                </div>
-                <div class="form mt-xl-4">
-                  <label for="name">Nomor WhatsApp <span>*</span></label>
-                  <div class="input">
-                    <input type="text" name="no_telp" placeholder="Masukkan nomor whatsapp kamu">
-                  </div>
-                </div>
-                <div class="form mt-xl-4">
-                  <label for="name">Alamat <span>*</span></label>
-                  <div class="input">
-                    <input type="text" name="alamat" placeholder="Masukkan alamat rumah kamu">
-                  </div>
-                </div>
-                <div class="form mt-xl-4">
-                  <label for="name">Layanan <span>*</span></label>
-                  <div class="dropdown">
-                    {{-- <button class="btn btn-outline-info dropdown-toggle w-100 mt-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Pilih Layanan
-                  </button> --}}
-                    <select class="form-select" name="layanan" aria-label="Default select example">
-                      <option selected>Pilih Layanan</option>
-                      @foreach ($pilihan as $item)
-                      <option value="{{$item->nama_layanan}}">{{$item->nama_layanan}}</option>
-                      @endforeach
-                    </select>
-                    {{-- <ul class="dropdown-menu">
-
-                    <li>{{$item->nama_layanan}}</li>
-
-                    </ul> --}}
-                  </div>
-                </div>
-                <div class="form mt-xl-4">
-                  <label for="name">Merk HP <span>*</span></label>
-                  <div class="input">
-                    <input type="text" name="merk_hp" placeholder="Tulis merk HP kamu">
-                  </div>
-                </div>
-                <div class="form mt-xl-4">
-                  <label for="name">Deskripsikan Kasus <span>*</span></label>
-                  <div class="input">
-                    <textarea name="keterangan" id="" cols="10" rows="5" placeholder="Ceritakan keluhan Handphone"></textarea>
-                  </div>
-                </div>
-                <div class="form-file mt-xl-4">
-                  <label for="name">Upload foto / video pendukung <span>*</span></label>
-                  <div class="box">
-                    <input type="file" name="foto" id="file-5" class="inputfile inputfile-4"
-                      data-multiple-caption="{count} files selected" multiple />
-                    <label for="file-5">
-                      <figure class="text-xl-center"><img src="{{ url('images/copas.png') }}" alt=""></figure>
-                      <p>Tarik file kesini atau <span>cari di file</span></p>
-
-                    </label>
-                  </div>
-                </div>
-                <div class="button-form">
-                  <button>Kirim</button>
-                </div>
-              </div>
-            </form>
+          <div class="consultation-image">
+            <img src="{{ url('images/form.png') }}" alt="phone">
           </div>
         </div>
+        <div class="col-xl-6">
+          <form action="/reservasi" method="POST" enctype="multipart/form-data">
+            <div class="consultation-form">
+              <div class="form">
+                <label for="name">Nama <span>*</span></label>
+                <div class="input">
+                  <input type="text" name="name" placeholder="Masukkan nama kamu">
+                </div>
+              </div>
+              <div class="form mt-xl-4">
+                <label for="name">Nomor WhatsApp <span>*</span></label>
+                <div class="input">
+                  <input type="text" name="no_telp" placeholder="Masukkan nomor whatsapp kamu">
+                </div>
+              </div>
+              <div class="form mt-xl-4">
+                <label for="name">Alamat <span>*</span></label>
+                <div class="input">
+                  <input type="text" name="alamat" placeholder="Masukkan alamat rumah kamu">
+                </div>
+              </div>
+              <div class="form mt-xl-4">
+                <label for="name">Layanan <span>*</span></label>
+                <div class="dropdown">
+                  <button class="btn btn-outline-info dropdown-toggle w-100 mt-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Pilih Layanan
+                  </button>
+                  <select class="form-select" name="layanan" aria-label="Default select example">
+                    <option selected>Pilih Layanan</option>
+                    <option value="">Reservasi</option>
+                  </select>
+                  <ul class="dropdown-menu">
+                    <li>Perbaiki Layar</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="form mt-xl-4">
+                <label for="name">Merk HP <span>*</span></label>
+                <div class="input">
+                  <input type="text" name="merk_hp" placeholder="Tulis merk HP kamu">
+                </div>
+              </div>
+              <div class="form mt-xl-4">
+                <label for="name">Deskripsikan Kasus <span>*</span></label>
+                <div class="input">
+                  <textarea name="keterangan" id="" cols="10" rows="5" placeholder="Ceritakan keluhan Handphone"></textarea>
+                </div>
+              </div>
+              <div class="button-form">
+                <button>Kirim</button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
-    </div> -->
+    </div>
+  </div>
   <!-- End : consultation -->
 </main>
 

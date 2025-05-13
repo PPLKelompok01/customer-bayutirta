@@ -21,10 +21,11 @@ use App\Models\Post;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get('/service', [ServiceController::class, 'index']);
 Route::get('/servicedetail/{id}', [ServiceController::class, 'serviceDetail']);
 Route::get('/', [Controller::class, 'index']);
-Route::post('/reservasi', [Controller::class, 'addReservasi']);
+// Route::post('/reservasi', [Controller::class, 'addReservasi']);
 Route::get('/katalogview', [KatalogController::class, 'index']);
 Route::get('/katalogdetail/{id}', [KatalogController::class, 'katalogDetail']);
 Route::post('/katalogdetail/diskusi/{id}', [KatalogController::class, 'katalogDiskusi']);
@@ -37,4 +38,3 @@ route::get('/status', [Controller::class, 'status']);
 
 Route::get('/lowongan', [LowonganController::class, 'index']);
 Route::get('/lowongandetail/{id}', [LowonganController::class, 'lowongandetail']);
-
