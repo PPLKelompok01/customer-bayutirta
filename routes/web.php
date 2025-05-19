@@ -25,7 +25,7 @@ use App\Models\Post;
 Route::get('/service', [ServiceController::class, 'index']);
 Route::get('/servicedetail/{id}', [ServiceController::class, 'serviceDetail']);
 Route::get('/', [Controller::class, 'index']);
-// Route::post('/reservasi', [Controller::class, 'addReservasi']);
+Route::post('/reservasi', [Controller::class, 'addReservasi']);
 Route::get('/katalogview', [KatalogController::class, 'index']);
 Route::get('/katalogdetail/{id}', [KatalogController::class, 'katalogDetail']);
 Route::post('/katalogdetail/diskusi/{id}', [KatalogController::class, 'katalogDiskusi']);
