@@ -120,32 +120,53 @@
   <!-- End : Service -->
 
   <!-- Status Service -->
-  <section class="py-5">
-    <div class="container">
-      <div class="row justify-content-center mb-4">
-        <div class="col-lg-6 text-center">
-          <div class="transaction-title">
-              <h2 class="font-jakarta">Cek Status Servis Anda</h2>
-              <p class="font-jakarta">Masukkan nomor invoice atau ID servis Anda untuk melacak status terbaru dari perangkat yang sedang kami tangani.</p>
-            </div>
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-6 text-center">
+        <div class="transaction-title mb-4">
+          <h2 class="font-jakarta fw-bold mb-3" style="color: #2c3e50;">Cek Status Servis Anda</h2>
+          <p class="font-jakarta fs-5 text-secondary">
+            Masukkan nomor invoice atau ID servis Anda untuk melacak status terbaru dari perangkat yang sedang kami tangani.
+          </p>
         </div>
       </div>
+    </div>
 
-      <div class="row justify-content-center">
-      <div class="col-md-10 col-lg-8">
+    <div class="row justify-content-center">
+      <div class="col-md-10 col-lg-7">
         <form action="/status" method="GET" class="needs-validation" novalidate>
-          <div class="input-group input-group-lg mb-3">
+          <div class="input-group input-group-lg shadow-sm rounded overflow-hidden">
             <span class="input-group-text bg-white border-end-0">
-              <i class="bi bi-receipt-cutoff text-primary"></i>
+              <i class="bi bi-receipt-cutoff text-primary fs-4"></i>
             </span>
-            <input type="text" name="status" class="form-control border-start-0" placeholder="Masukkan Nomor Invoice / ID Service" required>
-            <button class="btn btn-primary px-4 transition-hover" type="submit">Cek Status</button>
+            <input
+              type="text"
+              name="status"
+              class="form-control border-start-0"
+              placeholder="Masukkan Nomor Invoice / ID Service"
+              required
+              style="box-shadow: none;"
+            />
+            <button
+              class="btn btn-primary px-4 fw-semibold"
+              type="submit"
+              style="transition: background-color 0.3s ease;"
+              onmouseover="this.style.backgroundColor='#0056b3'"
+              onmouseout="this.style.backgroundColor=''"
+            >
+              Cek Status
+            </button>
+          </div>
+          <div class="invalid-feedback mt-1 text-start">
+            Mohon isi Nomor Invoice atau ID Service.
           </div>
         </form>
       </div>
     </div>
   </div>
 </section>
+
   <!-- End : Status Service -->
 
   <!-- Transaction -->
