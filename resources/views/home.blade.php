@@ -588,6 +588,7 @@
         </div>
         <div class="col-xl-6">
           <form action="/reservasi" method="POST" enctype="multipart/form-data">
+            {{ csrf_field() }}
             <div class="consultation-form">
               <div class="form">
                 <label for="name">Nama <span>*</span></label>
@@ -610,16 +611,12 @@
               <div class="form mt-xl-4">
                 <label for="name">Layanan <span>*</span></label>
                 <div class="dropdown">
-                  <button class="btn btn-outline-info dropdown-toggle w-100 mt-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Pilih Layanan
-                  </button>
                   <select class="form-select" name="layanan" aria-label="Default select example">
                     <option selected>Pilih Layanan</option>
-                    <option value="">Reservasi</option>
+                    @foreach ($pilihan as $item)
+                    <option value="{{$item->nama_layanan}}">{{$item->nama_layanan}}</option>
+                    @endforeach
                   </select>
-                  <ul class="dropdown-menu">
-                    <li>Perbaiki Layar</li>
-                  </ul>
                 </div>
               </div>
               <div class="form mt-xl-4">
