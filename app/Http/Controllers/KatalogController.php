@@ -10,10 +10,10 @@ use App\Models\KatalogDiskusi;
 
 class KatalogController extends Controller
 {
-    // ✅ Ganti nama dari "index" ke "katalogIndex" supaya tidak bentrok
+    // ✅ Route /katalog (filter)
     public function katalogIndex(Request $request)
     {
-        $merk = $request->query('merk'); 
+        $merk = $request->query('merk');
         $listMerk = Katalog::select('Kategori')->distinct()->pluck('Kategori');
 
         if ($merk) {
@@ -29,11 +29,16 @@ class KatalogController extends Controller
         ]);
     }
 
+    // ✅ Route /katalogview (lama), supaya tetap compatible sama blade filter
     public function index()
     {
         $katalogs = Katalog::all();
+        $listMerk = Katalog::select('Kategori')->distinct()->pluck('Kategori');
+
         return view('Katalogview', [
-            'katalog' => $katalogs
+            'katalog' => $katalogs,
+            'listMerk' => $listMerk,
+            'selectedMerk' => null
         ]);
     }
 
@@ -42,9 +47,9 @@ class KatalogController extends Controller
         $sort = request('sort', 'terbaru');
         $detail = Katalog::where('id_penjualan', '=', $id)->first();
         $diskusi = KatalogDiskusi::where('id_penjualan', '=', $id)
-        ->orderBy('created_at', $sort == 'terbaru' ? 'desc' : 'asc')
-        ->get();
-        
+            ->orderBy('created_at', $sort == 'terbaru' ? 'desc' : 'asc')
+            ->get();
+
         return view('katalogdetail', [
             'detail' => $detail,
             'diskusi' => $diskusi
@@ -61,7 +66,7 @@ class KatalogController extends Controller
         $post = new KatalogDiskusi([
             'id_penjualan' => $id,
             'name' => $validatedData['name'],
-            'isi' => $validatedData['isi'], 
+            'isi' => $validatedData['isi'],
             'created_at' => now()
         ]);
 
