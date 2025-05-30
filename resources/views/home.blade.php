@@ -120,7 +120,7 @@
   <!-- End : Service -->
 
   <!-- Status Service -->
-  <section class="py-5" style="background: #f8f9fa; position: relative; overflow: hidden;">
+  <section class="py-5" style="background: #fffff; position: relative; overflow: hidden;">
 
   <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.05;">
     <div style="position: absolute; top: 12%; left: 10%; width: 100px; height: 100px; background: #4F46E5; border-radius: 50%; animation: float1 6s ease-in-out infinite;"></div>
