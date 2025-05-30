@@ -255,7 +255,7 @@
         <div class="message text-center">
           <h3 class="fw-bold">Belum ada layanan yang dibuat</h3>
           <p>Buat dan atur layanan yang bisa diakses pelangganmu!</p>
-          <p>Klik button “Tambah Layanan” di atas kanan halaman ini</p>
+          <p>Klik button "Tambah Layanan" di atas kanan halaman ini</p>
         </div>
         @endif
         <div class="devices-button">
@@ -393,97 +393,53 @@
         <div class="col-xl-6">
           <div class="testimonial-title">
             <h5 class="font-jakarta">Apa kata Mereka</h5>
-            <p class="font-jakarta">Ini adalah beberapa testimoni dari pelanggan kami setelah memperbaiki handphone
-              nya di Bayu Tirta Cell</p>
+            <p class="font-jakarta">Ini adalah beberapa testimoni dari pelanggan kami setelah memperbaiki handphone nya di Bayu Tirta Cell</p>
           </div>
         </div>
       </div>
-      <div class="row justify-content-xl-center text-center">
-        <div class="testimonial-carousel owl-carousel owl-theme">
-          @if (isset($ulasan))
-          {{-- {{count($ulasan)}} --}}
-          {{-- {{print_r($ulasan)}} --}}
-          {{-- {{dd($ulasan)}} --}}
-          @foreach ($ulasan as $item)
-
-          {{-- @foreach ($item as $a)
-          {{dd($a)}}
-          <br>
-          <h1>batass</h1>
-          @endforeach --}}
-          {{-- {{print_r($item)}} --}}
-          {{-- <br>
-          <h1>batass</h1> --}}
-          {{-- {{$item->rating}} --}}
-          {{-- {{$item->author_name}}
-          {{$item->text}}
-          {{$item->created_at}} --}}
-          <div class="item text-start">
-            <span class="font-jakarta title">bintang {{$item->rating}}</span>
-            <p class="font-jakarta desc">{{$item->text}}</p>
-            <hr>
-
-            <div class="profile">
-              <div class="image">
-                <img src="{{$item->profile_photo_url}}" alt="profile">
+      <div class="row justify-content-xl-center">
+        @if (isset($ulasan) && count($ulasan) > 0)
+          <div class="testimonial-carousel owl-carousel owl-theme">
+            @foreach ($ulasan as $item)
+              <div class="item">
+                <div class="testimonial-card shadow-sm p-4 rounded">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div class="rating">
+                      @for ($i = 1; $i <= 5; $i++)
+                        <i class="fas fa-star {{ $i <= $item->rating ? 'text-warning' : 'text-muted' }}"></i>
+                      @endfor
+                    </div>
+                    <span class="badge bg-warning text-dark">
+                      <i class="fas fa-star me-1"></i>{{ $item->rating }}
+                    </span>
+                  </div>
+                  <p class="testimonial-text mb-4">{{ $item->text }}</p>
+                  <hr>
+                  <div class="profile d-flex align-items-center">
+                    <div class="image me-3">
+                      <img src="{{ $item->profile_photo_url ?? '/img/default-avatar.png' }}" alt="profile" class="rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">
+                    </div>
+                    <div class="position">
+                      <h5 class="font-jakarta mb-1">{{ $item->author_name }}</h5>
+                      <p class="text-muted mb-0 small">{{ date("Y-m-d", $item->time) }}</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="position">
-                <h5 class="font-jakarta">{{$item->author_name}}</h5>
-                <p class="font-jakarta">{{date("Y-m-d",$item->time);}}</p>
-              </div>
-            </div>
+            @endforeach
           </div>
-          @endforeach
-          @else
-          <div class="picture">
-            <img src="/img/ALT 4.png" alt="noservice">
+        @else
+          <div class="col-12 text-center py-5">
+            <img src="/img/ALT 4.png" alt="no-review" class="img-fluid mb-3" style="max-width: 200px;">
+            <h3 class="fw-bold">Belum ada testimoni yang ditampilkan</h3>
+            <p>Admin belum memilih testimoni untuk ditampilkan ke publik.</p>
           </div>
-          <div class="message text-center">
-            <h3 class="fw-bold">Belum ada layanan yang dibuat</h3>
-            <p>Buat dan atur layanan yang bisa diakses pelangganmu!</p>
-            <p>Klik button “Tambah Layanan” di atas kanan halaman ini</p>
-          </div>
-          @endif
-
-          {{-- <div class="item text-start">
-            <span class="font-jakarta title">Satisfied User Here!</span>
-            <p class="font-jakarta desc">Never thought that with Spend.In managing my business expenses is so easy!
-              Been using this platform for 3 months and still counting!</p>
-            <hr>
-
-            <div class="profile">
-              <div class="image">
-                  <img src="{{ url('images/profile2.png') }}" alt="profile">
-        </div>
-        <div class="position">
-          <h5 class="font-jakarta">Natasha Romanoff</h5>
-          <p class="font-jakarta">Black Widow</p>
-        </div>
+        @endif
       </div>
     </div>
-    <div class="item text-start">
-      <span class="font-jakarta title">No doubt, Spend.In is the best!</span>
-      <p class="font-jakarta desc">“The best”! That’s what I want to say to this platform, didn’t know that
-        there’s a platform to help you manage your business expenses like this! Very recommended to you who
-        have a big business!</p>
-      <hr>
-      <div class="profile">
-        <div class="image">
-          <img src="{{ url('images/profile3.png') }}" alt="profile">
-        </div>
-        <div class="position">
-          <h5 class="font-jakarta">Moritika Kazuki</h5>
-          <p class="font-jakarta">Finance Manager at Mangan</p>
-        </div>
-      </div>
-    </div> --}}
-
-  </div>
-  </div>
-  </div>
   </div>
   <!-- End : Testimonial -->
-  >
+
   <!-- Question -->
   <!-- <div class="question" id="question">
     <div class="container">
@@ -563,7 +519,7 @@
           <div class="message text-center">
             <h3 class="fw-bold">Belum ada layanan yang dibuat</h3>
             <p>Buat dan atur layanan yang bisa diakses pelangganmu!</p>
-            <p>Klik button “Tambah Layanan” di atas kanan halaman ini</p>
+            <p>Klik button "Tambah Layanan" di atas kanan halaman ini</p>
           </div>
           @endif
           <div class="devices-button">

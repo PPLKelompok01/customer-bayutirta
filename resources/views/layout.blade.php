@@ -25,6 +25,7 @@
 
   <!-- Icon -->
    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
   <!-- Page Fade Animation -->
   <style>
@@ -42,6 +43,30 @@
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       document.querySelectorAll('.fade-page').forEach(el => el.classList.add('loaded'));
+    });
+  </script>
+  <script src="{{ url('js/owl.carousel.min.js') }}"></script>
+  <script>
+    $(document).ready(function(){
+      $(".testimonial-carousel").owlCarousel({
+        items: 3,
+        loop: true,
+        margin: 20,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: true,
+        responsive:{
+          0:{
+            items:1
+          },
+          768:{
+            items:2
+          },
+          1024:{
+            items:3
+          }
+        }
+      });
     });
   </script>
 </head>
