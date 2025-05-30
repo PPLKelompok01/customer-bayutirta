@@ -123,7 +123,7 @@
   <section class="py-5" style="background: #f8f9fa; position: relative; overflow: hidden;">
 
   <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.05;">
-    <div style="position: absolute; top: 20%; left: 10%; width: 100px; height: 100px; background: #4F46E5; border-radius: 50%; animation: float1 6s ease-in-out infinite;"></div>
+    <div style="position: absolute; top: 12%; left: 10%; width: 100px; height: 100px; background: #4F46E5; border-radius: 50%; animation: float1 6s ease-in-out infinite;"></div>
     <div style="position: absolute; top: 60%; right: 15%; width: 80px; height: 80px; background: #10B981; border-radius: 50%; animation: float2 8s ease-in-out infinite;"></div>
     <div style="position: absolute; bottom: 20%; left: 20%; width: 60px; height: 60px; background: #3B82F6; border-radius: 50%; animation: float3 7s ease-in-out infinite;"></div>
   </div>
