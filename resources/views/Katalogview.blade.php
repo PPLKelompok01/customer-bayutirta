@@ -22,7 +22,7 @@
     </div>
   </section>
 
-  <!-- ✅ FILTER MERK DINAMIS -->
+
   <section class="part">
     <div class="container mb-4">
       <div class="row">
@@ -39,7 +39,7 @@
       </div>
     </div>
 
-    <!-- PART PRODUK -->
+  
     <div class="container">
       <div class="row">
           @if (isset($katalog))
@@ -48,7 +48,7 @@
                   <a href="{{ url("/katalogdetail/$item->id_penjualan") }}" class="text-decoration-none">
                     <div class="part-card">
                       <div class="image">
-                        <img style="height: 270px; width: 415px; object-fit: cover; border-radius:20px" src="{{ asset('images/penjualan/'.$item->foto) }}" onerror="this.src='images/service2.png'" alt="Foto Produk"> 
+                        <img style="height: 270px; width: 415px; object-fit: cover; border-radius:20px" src="{{ url('images/penjualan/'.$item->foto) }}" onerror="this.src='images/service2.png'" alt="Foto Produk"> 
                       </div>
                       <div class="body">
                         <h5 class="title font-jakarta">{{$item->judul}}</h5>
@@ -91,7 +91,7 @@
     </div>
   </section>
 
-  <!-- Reservasi -->
+
   <div class="reservasi bg-blacker">
     <div class="container">
       <div class="reservasi-wrapper bg-purple">
