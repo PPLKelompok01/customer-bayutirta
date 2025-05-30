@@ -6,6 +6,7 @@ use App\Http\Controllers\KatalogController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\LowonganController;
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\KonsultasiController;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
@@ -38,3 +39,11 @@ route::get('/status', [Controller::class, 'status']);
 Route::get('/lowongan', [LowonganController::class, 'index']);
 Route::get('/lowongandetail/{id}', [LowonganController::class, 'lowongandetail']);
 
+Route::get('/konsultasi', [KonsultasiController::class, 'index']);
+Route::get('/konsultasi/login', [KonsultasiController::class, 'showLoginForm'])->name('konsultasi.login');
+Route::post('/konsultasi/login', [KonsultasiController::class, 'login']);
+Route::get('/konsultasi/register', [KonsultasiController::class, 'showRegisterForm'])->name('konsultasi.register');
+Route::post('/konsultasi/register', [KonsultasiController::class, 'register']);
+Route::post('/konsultasi/logout', [KonsultasiController::class, 'logout'])->name('konsultasi.logout');
+Route::get('/konsultasi/dashboard', [KonsultasiController::class, 'dashboard'])->middleware('konsultasi.auth')->name('konsultasi.dashboard');
+Route::post('/konsultasi/submit', [KonsultasiController::class, 'store'])->middleware('konsultasi.auth')->name('konsultasi.submit');
