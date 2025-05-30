@@ -119,18 +119,6 @@
   </section>
   <!-- End : Service -->
 
-  <!-- Status Service -->
-  <div class="service-check">
-    <h2>SERVICE CHECK</h2>
-    <div class="form-group">
-      <form action="/status" method="GET">
-        <input type="text" name="status" class="form-control" id="invoiceNumber" placeholder="Enter Invoice Number">
-    </div>
-    <button type="submit" class="btn btn-primary">SEARCH</button>
-  </div>
-  </form>
-  <!-- End : Status Service -->
-
   <!-- Transaction -->
   <div class="transaction" id="transaction">
     <div class="container">
@@ -211,7 +199,7 @@
   <!-- End : Transaction -->
 
   <!-- Part -->
-  <!-- <section class="part">
+  <section class="part">
     <div class="container">
       <div class="part-title">
         <h2 class="font-jakarta">Layanan Kami</h2>
@@ -264,7 +252,7 @@
 
       </div>
     </div>
-  </section> -->
+  </section>
   <!-- End : Part -->
 
   <!-- Working -->
