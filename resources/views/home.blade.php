@@ -389,6 +389,12 @@
   <!-- Testimonial -->
   <div class="testimonial" id="testimonial">
     <div class="container">
+      @if(isset($ulasan))
+        <!-- Debug info -->
+        <div style="display: none;">
+          {{ print_r($ulasan) }}
+        </div>
+      @endif
       <div class="row justify-content-xl-center">
         <div class="col-xl-6">
           <div class="testimonial-title">

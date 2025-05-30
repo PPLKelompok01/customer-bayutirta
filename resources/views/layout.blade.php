@@ -55,6 +55,8 @@
         autoplay: true,
         autoplayTimeout: 3000,
         autoplayHoverPause: true,
+        nav: true,
+        dots: true,
         responsive:{
           0:{
             items:1
