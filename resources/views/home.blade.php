@@ -120,7 +120,7 @@
   <!-- End : Service -->
 
   <!-- Status Service -->
-  <!-- <div class="service-check">
+  <div class="service-check">
     <h2>SERVICE CHECK</h2>
     <div class="form-group">
       <form action="/status" method="GET">
@@ -128,7 +128,7 @@
     </div>
     <button type="submit" class="btn btn-primary">SEARCH</button>
   </div>
-  </form> -->
+  </form>
   <!-- End : Status Service -->
 
   <!-- Transaction -->
