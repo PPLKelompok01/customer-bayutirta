@@ -21,9 +21,25 @@
       </div>
     </div>
   </section>
-  <!-- Part -->
 
+  <!-- ✅ FILTER MERK DINAMIS -->
   <section class="part">
+    <div class="container mb-4">
+      <div class="row">
+        <div class="col">
+          <div class="btn-group">
+            <a href="{{ url('/katalog') }}" class="btn btn-outline-primary {{ $selectedMerk == null ? 'active' : '' }}">Semua</a>
+            @foreach($listMerk as $merkItem)
+              <a href="{{ url('/katalog?merk='.$merkItem) }}" class="btn btn-outline-primary {{ $selectedMerk == $merkItem ? 'active' : '' }}">
+                {{ ucfirst($merkItem) }}
+              </a>
+            @endforeach
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PART PRODUK -->
     <div class="container">
       <div class="row">
           @if (isset($katalog))
@@ -32,7 +48,7 @@
                   <a href="{{ url("/katalogdetail/$item->id_penjualan") }}" class="text-decoration-none">
                     <div class="part-card">
                       <div class="image">
-                        <img style="height: 270px; width: 415px; object-fit: cover; border-radius:20px" src="images/katalog/{{$item->foto}}" onerror="this.src='images/service2.png'" alt="images/service2.png">
+                        <img style="height: 270px; width: 415px; object-fit: cover; border-radius:20px" src="{{ asset('images/penjualan/'.$item->foto) }}" onerror="this.src='images/service2.png'" alt="Foto Produk"> 
                       </div>
                       <div class="body">
                         <h5 class="title font-jakarta">{{$item->judul}}</h5>
@@ -71,11 +87,10 @@
                 <p>Klik tombol “Tambah Katalog” di atas kanan halaman ini</p>
             </div>
         @endif
-
       </div>
     </div>
   </section>
-  <!-- End : Part -->
+
   <!-- Reservasi -->
   <div class="reservasi bg-blacker">
     <div class="container">
@@ -102,6 +117,5 @@
       </div>
     </div>
   </div>
-  <!-- End : reservasi -->
 </main>
 @endsection

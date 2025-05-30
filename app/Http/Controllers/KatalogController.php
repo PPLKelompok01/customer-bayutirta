@@ -10,6 +10,25 @@ use App\Models\KatalogDiskusi;
 
 class KatalogController extends Controller
 {
+    // ✅ Ganti nama dari "index" ke "katalogIndex" supaya tidak bentrok
+    public function katalogIndex(Request $request)
+    {
+        $merk = $request->query('merk'); 
+        $listMerk = Katalog::select('Kategori')->distinct()->pluck('Kategori');
+
+        if ($merk) {
+            $katalogs = Katalog::where('Kategori', $merk)->get();
+        } else {
+            $katalogs = Katalog::all();
+        }
+
+        return view('Katalogview', [
+            'katalog' => $katalogs,
+            'listMerk' => $listMerk,
+            'selectedMerk' => $merk
+        ]);
+    }
+
     public function index()
     {
         $katalogs = Katalog::all();
@@ -20,7 +39,7 @@ class KatalogController extends Controller
 
     public function katalogdetail(string $id)
     {
-        $sort = request('sort', 'terbaru'); // default sort adalah 'terbaru'
+        $sort = request('sort', 'terbaru');
         $detail = Katalog::where('id_penjualan', '=', $id)->first();
         $diskusi = KatalogDiskusi::where('id_penjualan', '=', $id)
         ->orderBy('created_at', $sort == 'terbaru' ? 'desc' : 'asc')
@@ -32,7 +51,6 @@ class KatalogController extends Controller
         ]);
     }
 
-    
     public function katalogDiskusi(Request $request, string $id)
     {
         $validatedData = $request->validate([

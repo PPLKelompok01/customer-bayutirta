@@ -19,7 +19,7 @@
             <div class="price font-jakarta">{{ $detail->posisi}}</div><br>
             <h5 class="font-jakarta">{{$detail->cabang_perusahaan}}</h5>
             <div class="action">
-              <button><a href="{{ url('https://wa.me/6282257423118?text=Halo,%20Saya%20tertarik%20dengan%20informasi%20lowongan%20pekerjaan%20yang%20tersedia%20di%20website%20Bayu%20Tirta%20Cell.%20Sehingga%20saya%20ingin%20melamar%20sebagai%20'.$detail->posisi) }}" class="text-decoration-none text-white">Kontak Perusahaan</a></button>
+              <button><a href="{{ url('https://wa.me/6282257423118?text=Halo,%20Saya%20tertarik%20dengan%20informasi%20lowongan%20pekerjaan%20yang%20tersedia%20di%20website%20Bayu%20Tirta%20Cell.%20Saya%20ingin%20melamar%20sebagai%20'.$detail->posisi) }}" class="text-decoration-none text-white">Kontak Perusahaan</a></button>
             </div>
           </div>
         </div>
