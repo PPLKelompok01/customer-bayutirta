@@ -122,266 +122,297 @@
   <!-- Status Service -->
   <section class="py-5" style="background: #fffff; position: relative; overflow: hidden;">
 
-  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.05;">
-    <div style="position: absolute; top: 12%; left: 10%; width: 100px; height: 100px; background: #4F46E5; border-radius: 50%; animation: float1 6s ease-in-out infinite;"></div>
-    <div style="position: absolute; top: 60%; right: 15%; width: 80px; height: 80px; background: #10B981; border-radius: 50%; animation: float2 8s ease-in-out infinite;"></div>
-    <div style="position: absolute; bottom: 20%; left: 20%; width: 60px; height: 60px; background: #3B82F6; border-radius: 50%; animation: float3 7s ease-in-out infinite;"></div>
-  </div>
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.05;">
+      <div style="position: absolute; top: 12%; left: 10%; width: 100px; height: 100px; background: #4F46E5; border-radius: 50%; animation: float1 6s ease-in-out infinite;"></div>
+      <div style="position: absolute; top: 60%; right: 15%; width: 80px; height: 80px; background: #10B981; border-radius: 50%; animation: float2 8s ease-in-out infinite;"></div>
+      <div style="position: absolute; bottom: 20%; left: 20%; width: 60px; height: 60px; background: #3B82F6; border-radius: 50%; animation: float3 7s ease-in-out infinite;"></div>
+    </div>
 
-  <div class="container position-relative">
-    <div class="row align-items-center">
-      <div class="col-lg-5">
-        <div class="transaction-title mb-4 text-center text-lg-start">
-          <div style="display: inline-block; background: linear-gradient(135deg, #4F46E5, #7C3AED); border-radius: 50%; padding: 20px; margin-bottom: 20px; animation: pulse 2s infinite;">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+    <div class="container position-relative">
+      <div class="row align-items-center">
+        <div class="col-lg-5">
+          <div class="transaction-title mb-4 text-center text-lg-start">
+            <div style="display: inline-block; background: linear-gradient(135deg, #4F46E5, #7C3AED); border-radius: 50%; padding: 20px; margin-bottom: 20px; animation: pulse 2s infinite;">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h2 class="font-jakarta fw-bold mb-3" style="color: #2c3e50; font-size: 2.5rem;">
+              Lacak Status Servis Anda
+            </h2>
+            <p class="font-jakarta fs-5" style="color: #6B7280; line-height: 1.6;">
+              Pantau perkembangan perbaikan perangkat Anda secara real-time dengan memasukkan nomor invoice atau ID servis di form sebelah kanan.
+            </p>
           </div>
-          <h2 class="font-jakarta fw-bold mb-3" style="color: #2c3e50; font-size: 2.5rem;">
-            Lacak Status Servis Anda
-          </h2>
-          <p class="font-jakarta fs-5" style="color: #6B7280; line-height: 1.6;">
-            Pantau perkembangan perbaikan perangkat Anda secara real-time dengan memasukkan nomor invoice atau ID servis di form sebelah kanan.
-          </p>
         </div>
-      </div>
 
-      <div class="col-lg-7">
-        <div style="background: white; border-radius: 25px; padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05);">
-          <form action="/status" method="GET" class="needs-validation" novalidate id="statusForm">
-            <div class="mb-4">
-              <label class="form-label font-jakarta fw-semibold" style="color: #2c3e50; font-size: 1.1rem;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
-                  <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Nomor Invoice / ID Service
-              </label>
-              <div class="input-group input-group-lg" style="border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                <span class="input-group-text" style="background: linear-gradient(135deg, #4F46E5, #7C3AED); border: none; color: white; padding: 15px 20px;">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <div class="col-lg-7">
+          <div style="background: white; border-radius: 25px; padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05);">
+            <form action="/status" method="GET" class="needs-validation" novalidate id="statusForm">
+              <div class="mb-4">
+                <label class="form-label font-jakarta fw-semibold" style="color: #2c3e50; font-size: 1.1rem;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
+                    <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                   </svg>
-                </span>
-                <input
-                  type="text"
-                  name="status"
-                  class="form-control"
-                  placeholder="Contoh: INV-001234 atau SRV-789"
-                  required
-                  style="border: none; padding: 15px 20px; font-size: 1.1rem; background: white;"
-                  id="statusInput"
-                />
-                <button
-                  class="btn px-4 fw-semibold"
-                  type="submit"
-                  style="background: linear-gradient(135deg, #10B981, #059669); border: none; color: white; padding: 15px 30px; font-size: 1.1rem; transition: all 0.3s ease; position: relative; overflow: hidden;"
-                  id="submitBtn"
-                >
-                  <span class="btn-text">Cek Status</span>
-                  <span class="btn-loading" style="display: none;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="animation: spin 1s linear infinite;">
-                      <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none" opacity="0.3"/>
-                      <path d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" fill="currentColor"/>
+                  Nomor Invoice / ID Service
+                </label>
+                <div class="input-group input-group-lg" style="border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                  <span class="input-group-text" style="background: linear-gradient(135deg, #4F46E5, #7C3AED); border: none; color: white; padding: 15px 20px;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                   </span>
-                </button>
+                  <input
+                    type="text"
+                    name="status"
+                    class="form-control"
+                    placeholder="Contoh: INV-001234 atau SRV-789"
+                    required
+                    style="border: none; padding: 15px 20px; font-size: 1.1rem; background: white;"
+                    id="statusInput" />
+                  <button
+                    class="btn px-4 fw-semibold"
+                    type="submit"
+                    style="background: linear-gradient(135deg, #10B981, #059669); border: none; color: white; padding: 15px 30px; font-size: 1.1rem; transition: all 0.3s ease; position: relative; overflow: hidden;"
+                    id="submitBtn">
+                    <span class="btn-text">Cek Status</span>
+                    <span class="btn-loading" style="display: none;">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="animation: spin 1s linear infinite;">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none" opacity="0.3" />
+                        <path d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" fill="currentColor" />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
+                <div class="invalid-feedback mt-2" style="font-size: 0.9rem;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 5px;">
+                    <path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  Msukkan Nomor Invoice atau ID Service yang valid
+                </div>
               </div>
-              <div class="invalid-feedback mt-2" style="font-size: 0.9rem;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 5px;">
-                  <path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Msukkan Nomor Invoice atau ID Service yang valid
-              </div>
-            </div>
 
-            <div style="background: linear-gradient(135deg, #EBF4FF, #DBEAFE); border-radius: 15px; padding: 20px; margin-top: 25px; border-left: 4px solid #3B82F6;">
-              <h6 class="font-jakarta fw-semibold mb-2" style="color: #1E40AF;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
-                  <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                Tips Pencarian:
-              </h6>
-              <div class="row">
-                <div class="col-md-6">
-                  <p class="font-jakarta mb-1" style="color: #374151; font-size: 0.9rem;">
-                    • Nomor Invoice: INV-XXXXXX
-                  </p>
-                  <p class="font-jakarta mb-1" style="color: #374151; font-size: 0.9rem;">
-                    • ID Service: SRV-XXXXXX
-                  </p>
-                </div>
-                <div class="col-md-6">
-                  <p class="font-jakarta mb-1" style="color: #374151; font-size: 0.9rem;">
-                    • Periksa SMS konfirmasi
-                  </p>
-                  <p class="font-jakarta mb-0" style="color: #374151; font-size: 0.9rem;">
-                    • Atau hubungi customer service
-                  </p>
+              <div style="background: linear-gradient(135deg, #EBF4FF, #DBEAFE); border-radius: 15px; padding: 20px; margin-top: 25px; border-left: 4px solid #3B82F6;">
+                <h6 class="font-jakarta fw-semibold mb-2" style="color: #1E40AF;">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
+                    <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                  Tips Pencarian:
+                </h6>
+                <div class="row">
+                  <div class="col-md-6">
+                    <p class="font-jakarta mb-1" style="color: #374151; font-size: 0.9rem;">
+                      • Nomor Invoice: INV-XXXXXX
+                    </p>
+                    <p class="font-jakarta mb-1" style="color: #374151; font-size: 0.9rem;">
+                      • ID Service: SRV-XXXXXX
+                    </p>
+                  </div>
+                  <div class="col-md-6">
+                    <p class="font-jakarta mb-1" style="color: #374151; font-size: 0.9rem;">
+                      • Periksa SMS konfirmasi
+                    </p>
+                    <p class="font-jakarta mb-0" style="color: #374151; font-size: 0.9rem;">
+                      • Atau hubungi customer service
+                    </p>
+                  </div>
                 </div>
               </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mt-5">
+        <div class="col-md-4 mb-3">
+          <div style="background: white; border-radius: 20px; padding: 25px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05); transition: transform 0.3s ease;" class="info-card">
+            <div style="background: linear-gradient(135deg, #10B981, #059669); border-radius: 50%; width: 60px; height: 60px; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
             </div>
-          </form>
+            <h6 class="font-jakarta fw-semibold mb-2" style="color: #1F2937;">Real-time Update</h6>
+            <p class="font-jakarta mb-0" style="color: #6B7280; font-size: 0.9rem;">Status diperbarui setiap saat</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div style="background: white; border-radius: 20px; padding: 25px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05); transition: transform 0.3s ease;" class="info-card">
+            <div style="background: linear-gradient(135deg, #3B82F6, #1D4ED8); border-radius: 50%; width: 60px; height: 60px; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h6 class="font-jakarta fw-semibold mb-2" style="color: #1F2937;">Aman & Terpercaya</h6>
+            <p class="font-jakarta mb-0" style="color: #6B7280; font-size: 0.9rem;">Data Anda aman bersama kami</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div style="background: white; border-radius: 20px; padding: 25px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05); transition: transform 0.3s ease;" class="info-card">
+            <div style="background: linear-gradient(135deg, #8B5CF6, #7C3AED); border-radius: 50%; width: 60px; height: 60px; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+            <h6 class="font-jakarta fw-semibold mb-2" style="color: #1F2937;">24/7 Support</h6>
+            <p class="font-jakarta mb-0" style="color: #6B7280; font-size: 0.9rem;">Bantuan kapanpun Anda butuhkan</p>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="row justify-content-center mt-5">
-      <div class="col-md-4 mb-3">
-        <div style="background: white; border-radius: 20px; padding: 25px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05); transition: transform 0.3s ease;" class="info-card">
-          <div style="background: linear-gradient(135deg, #10B981, #059669); border-radius: 50%; width: 60px; height: 60px; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h6 class="font-jakarta fw-semibold mb-2" style="color: #1F2937;">Real-time Update</h6>
-          <p class="font-jakarta mb-0" style="color: #6B7280; font-size: 0.9rem;">Status diperbarui setiap saat</p>
-        </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <div style="background: white; border-radius: 20px; padding: 25px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05); transition: transform 0.3s ease;" class="info-card">
-          <div style="background: linear-gradient(135deg, #3B82F6, #1D4ED8); border-radius: 50%; width: 60px; height: 60px; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h6 class="font-jakarta fw-semibold mb-2" style="color: #1F2937;">Aman & Terpercaya</h6>
-          <p class="font-jakarta mb-0" style="color: #6B7280; font-size: 0.9rem;">Data Anda aman bersama kami</p>
-        </div>
-      </div>
-      <div class="col-md-4 mb-3">
-        <div style="background: white; border-radius: 20px; padding: 25px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid rgba(0,0,0,0.05); transition: transform 0.3s ease;" class="info-card">
-          <div style="background: linear-gradient(135deg, #8B5CF6, #7C3AED); border-radius: 50%; width: 60px; height: 60px; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h6 class="font-jakarta fw-semibold mb-2" style="color: #1F2937;">24/7 Support</h6>
-          <p class="font-jakarta mb-0" style="color: #6B7280; font-size: 0.9rem;">Bantuan kapanpun Anda butuhkan</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  <style>
+    @keyframes float1 {
 
-<style>
-@keyframes float1 {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(180deg); }
-}
-
-@keyframes float2 {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-15px) rotate(-180deg); }
-}
-
-@keyframes float3 {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-25px) rotate(180deg); }
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.info-card:hover {
-  transform: translateY(-5px);
-}
-
-#submitBtn:hover {
-  background: linear-gradient(135deg, #059669, #047857) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
-}
-
-.quick-status-btn:hover {
-  background: linear-gradient(135deg, #3B82F6, #1D4ED8);
-  color: white;
-  border-color: transparent;
-  transform: translateY(-2px);
-}
-
-.form-control:focus {
-  border-color: #3B82F6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-}
-
-.needs-validation .form-control:invalid {
-  border-color: #EF4444;
-}
-
-.needs-validation .form-control:valid {
-  border-color: #10B981;
-}
-</style>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const form = document.getElementById('statusForm');
-  const input = document.getElementById('statusInput');
-  const submitBtn = document.getElementById('submitBtn');
-  const quickStatusBtns = document.querySelectorAll('.quick-status-btn');
-  
-  quickStatusBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
-      const status = this.getAttribute('data-status');
-      input.value = status;
-      input.focus();
-      
-      this.style.background = 'linear-gradient(135deg, #10B981, #059669)';
-      this.style.color = 'white';
-      this.style.borderColor = 'transparent';
-      
-      setTimeout(() => {
-        this.style.background = '';
-        this.style.color = '';
-        this.style.borderColor = '';
-      }, 1000);
-    });
-  });
-  
-  form.addEventListener('submit', function(e) {
-    const btnText = submitBtn.querySelector('.btn-text');
-    const btnLoading = submitBtn.querySelector('.btn-loading');
-    
-    btnText.style.display = 'none';
-    btnLoading.style.display = 'inline-block';
-    submitBtn.disabled = true;
-    
-    setTimeout(() => {
-      btnText.style.display = 'inline-block';
-      btnLoading.style.display = 'none';
-      submitBtn.disabled = false;
-    }, 2000);
-  });
-  
-  input.addEventListener('input', function() {
-    const value = this.value.trim();
-    const isValid = value.length >= 6 && (value.startsWith('INV-') || value.startsWith('SRV-'));
-    
-    if (isValid) {
-      this.classList.remove('is-invalid');
-      this.classList.add('is-valid');
-    } else if (value.length > 0) {
-      this.classList.remove('is-valid');
-      this.classList.add('is-invalid');
-    } else {
-      this.classList.remove('is-valid', 'is-invalid');
-    }
-  });
-  
-  input.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      form.submit();
+      0%,
+      100% {
+        transform: translateY(0px) rotate(0deg);
       }
+
+      50% {
+        transform: translateY(-20px) rotate(180deg);
+      }
+    }
+
+    @keyframes float2 {
+
+      0%,
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-15px) rotate(-180deg);
+      }
+    }
+
+    @keyframes float3 {
+
+      0%,
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-25px) rotate(180deg);
+      }
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .info-card:hover {
+      transform: translateY(-5px);
+    }
+
+    #submitBtn:hover {
+      background: linear-gradient(135deg, #059669, #047857) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+    }
+
+    .quick-status-btn:hover {
+      background: linear-gradient(135deg, #3B82F6, #1D4ED8);
+      color: white;
+      border-color: transparent;
+      transform: translateY(-2px);
+    }
+
+    .form-control:focus {
+      border-color: #3B82F6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .needs-validation .form-control:invalid {
+      border-color: #EF4444;
+    }
+
+    .needs-validation .form-control:valid {
+      border-color: #10B981;
+    }
+  </style>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('statusForm');
+      const input = document.getElementById('statusInput');
+      const submitBtn = document.getElementById('submitBtn');
+      const quickStatusBtns = document.querySelectorAll('.quick-status-btn');
+
+      quickStatusBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const status = this.getAttribute('data-status');
+          input.value = status;
+          input.focus();
+
+          this.style.background = 'linear-gradient(135deg, #10B981, #059669)';
+          this.style.color = 'white';
+          this.style.borderColor = 'transparent';
+
+          setTimeout(() => {
+            this.style.background = '';
+            this.style.color = '';
+            this.style.borderColor = '';
+          }, 1000);
+        });
+      });
+
+      form.addEventListener('submit', function(e) {
+        const btnText = submitBtn.querySelector('.btn-text');
+        const btnLoading = submitBtn.querySelector('.btn-loading');
+
+        btnText.style.display = 'none';
+        btnLoading.style.display = 'inline-block';
+        submitBtn.disabled = true;
+
+        setTimeout(() => {
+          btnText.style.display = 'inline-block';
+          btnLoading.style.display = 'none';
+          submitBtn.disabled = false;
+        }, 2000);
+      });
+
+      input.addEventListener('input', function() {
+        const value = this.value.trim();
+        const isValid = value.length >= 6 && (value.startsWith('INV-') || value.startsWith('SRV-'));
+
+        if (isValid) {
+          this.classList.remove('is-invalid');
+          this.classList.add('is-valid');
+        } else if (value.length > 0) {
+          this.classList.remove('is-valid');
+          this.classList.add('is-invalid');
+        } else {
+          this.classList.remove('is-valid', 'is-invalid');
+        }
+      });
+
+      input.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          form.submit();
+        }
+      });
     });
-  });
   </script>
   <!-- End : Status Service -->
 
