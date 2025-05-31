@@ -878,25 +878,31 @@
               <div class="form">
                 <label for="name">Nama <span>*</span></label>
                 <div class="input">
-                  <input type="text" name="name" placeholder="Masukkan nama kamu">
+                  <input type="text" name="name" placeholder="Masukkan nama kamu" required>
                 </div>
               </div>
               <div class="form mt-xl-4">
                 <label for="name">Nomor WhatsApp <span>*</span></label>
                 <div class="input">
-                  <input type="text" name="no_telp" placeholder="Masukkan nomor whatsapp kamu">
+                  <input type="text" name="no_telp" placeholder="Masukkan nomor whatsapp kamu" required>
                 </div>
               </div>
               <div class="form mt-xl-4">
                 <label for="name">Alamat <span>*</span></label>
                 <div class="input">
-                  <input type="text" name="alamat" placeholder="Masukkan alamat rumah kamu">
+                  <input type="text" name="alamat" placeholder="Masukkan alamat rumah kamu" required>
+                </div>
+              </div>
+              <div class="form mt-xl-4">
+                <label for="name">Tanggal Reservasi <span>*</span></label>
+                <div class="input">
+                  <input type="date" name="date_reservasi" placeholder="Pilih Tanggal Reservasi" required>
                 </div>
               </div>
               <div class="form mt-xl-4">
                 <label for="name">Layanan <span>*</span></label>
                 <div class="dropdown">
-                  <select class="form-select" name="layanan" aria-label="Default select example">
+                  <select class="form-select" name="layanan" aria-label="Default select example" required>
                     <option selected>Pilih Layanan</option>
                     @foreach ($pilihan as $item)
                     <option value="{{$item->nama_layanan}}">{{$item->nama_layanan}}</option>
@@ -907,13 +913,13 @@
               <div class="form mt-xl-4">
                 <label for="name">Merk HP <span>*</span></label>
                 <div class="input">
-                  <input type="text" name="merk_hp" placeholder="Tulis merk HP kamu">
+                  <input type="text" name="merk_hp" placeholder="Tulis merk HP kamu" required>
                 </div>
               </div>
               <div class="form mt-xl-4">
                 <label for="name">Deskripsikan Kasus <span>*</span></label>
                 <div class="input">
-                  <textarea name="keterangan" id="" cols="10" rows="5" placeholder="Ceritakan keluhan Handphone"></textarea>
+                  <textarea name="keterangan" id="" cols="10" rows="5" placeholder="Ceritakan keluhan Handphone" required></textarea>
                 </div>
               </div>
               <div class="button-form">
