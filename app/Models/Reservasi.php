@@ -16,6 +16,7 @@ class Reservasi extends Model
         'keterangan',
         'foto',
         'status',
+        'date_reservasi',
         'created_at',
         'updated_at'
     ];
