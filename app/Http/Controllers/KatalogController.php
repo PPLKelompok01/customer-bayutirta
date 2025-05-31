@@ -10,29 +10,52 @@ use App\Models\KatalogDiskusi;
 
 class KatalogController extends Controller
 {
+    // ✅ Route /katalog (filter)
+    public function katalogIndex(Request $request)
+    {
+        $merk = $request->query('merk');
+        $listMerk = Katalog::select('Kategori')->distinct()->pluck('Kategori');
+
+        if ($merk) {
+            $katalogs = Katalog::where('Kategori', $merk)->get();
+        } else {
+            $katalogs = Katalog::all();
+        }
+
+        return view('Katalogview', [
+            'katalog' => $katalogs,
+            'listMerk' => $listMerk,
+            'selectedMerk' => $merk
+        ]);
+    }
+
+    // ✅ Route /katalogview (lama), supaya tetap compatible sama blade filter
     public function index()
     {
         $katalogs = Katalog::all();
+        $listMerk = Katalog::select('Kategori')->distinct()->pluck('Kategori');
+
         return view('Katalogview', [
-            'katalog' => $katalogs
+            'katalog' => $katalogs,
+            'listMerk' => $listMerk,
+            'selectedMerk' => null
         ]);
     }
 
     public function katalogdetail(string $id)
     {
-        $sort = request('sort', 'terbaru'); // default sort adalah 'terbaru'
+        $sort = request('sort', 'terbaru');
         $detail = Katalog::where('id_penjualan', '=', $id)->first();
         $diskusi = KatalogDiskusi::where('id_penjualan', '=', $id)
-        ->orderBy('created_at', $sort == 'terbaru' ? 'desc' : 'asc')
-        ->get();
-        
+            ->orderBy('created_at', $sort == 'terbaru' ? 'desc' : 'asc')
+            ->get();
+
         return view('katalogdetail', [
             'detail' => $detail,
             'diskusi' => $diskusi
         ]);
     }
 
-    
     public function katalogDiskusi(Request $request, string $id)
     {
         $validatedData = $request->validate([
@@ -43,7 +66,7 @@ class KatalogController extends Controller
         $post = new KatalogDiskusi([
             'id_penjualan' => $id,
             'name' => $validatedData['name'],
-            'isi' => $validatedData['isi'], 
+            'isi' => $validatedData['isi'],
             'created_at' => now()
         ]);
 
