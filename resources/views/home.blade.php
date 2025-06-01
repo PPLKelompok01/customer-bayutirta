@@ -110,7 +110,9 @@
                 <p class="font-jakarta">Gratis Diagnosa, konsultasi & reservasi dengan dukungan
                   pesan foto.</p>
               </div>
-              <button><a class="button-link text-decoration-none text-light" aria-current="page" href="#consultation">Reservasi Sekarang</a></button>
+              <button dusk="reservasi-button" onclick="document.getElementById('consultation').scrollIntoView({behavior: 'smooth'});">
+                Reservasi Sekarang
+              </button>
             </div>
           </div>
         </div>
@@ -923,7 +925,7 @@
                 </div>
               </div>
               <div class="button-form">
-                <button>Kirim</button>
+                <button type="submitt">Kirim</button>
               </div>
             </div>
           </form>
