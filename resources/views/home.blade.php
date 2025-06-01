@@ -644,12 +644,6 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- Testimonial -->
 <div class="testimonial" id="testimonial">
   <div class="container">
-    @if(isset($ulasan))
-      <!-- Debug info -->
-      <div style="display: none;">
-        {{ print_r($ulasan) }}
-      </div>
-    @endif
     <div class="row justify-content-xl-center">
       <div class="col-xl-6">
         <div class="testimonial-title">
@@ -674,37 +668,10 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
     </div>
 
-    <!-- Sort Options -->
-    @if (isset($ulasan) && count($ulasan) > 0)
-      <div class="row justify-content-center mb-4">
-        <div class="col-lg-8 col-md-10">
-          <div class="card shadow-sm border-0">
-            <div class="card-body py-3">
-              <div class="d-flex justify-content-between align-items-center flex-wrap">
-                <div class="d-flex align-items-center mb-2 mb-md-0">
-                  <i class="fas fa-comments text-primary me-2"></i>
-                  <span class="fw-bold">{{ count($ulasan) }} Testimoni</span>
-                </div>
-                <div class="d-flex align-items-center">
-                  <label for="sortSelect" class="form-label me-3 mb-0 fw-medium">
-                    <i class="fas fa-sort me-1 text-secondary"></i>Urutkan:
-                  </label>
-                  <select id="sortSelect" class="form-select form-select-sm" style="width: 130px;">
-                    <option value="newest">Terbaru</option>
-                    <option value="oldest">Terlama</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    @endif
-
     <div class="row justify-content-xl-center">
-      @if (isset($ulasan) && count($ulasan) > 0)
+      @if (isset($selectedUlasans) && count($selectedUlasans) > 0)
         <div class="testimonial-carousel owl-carousel owl-theme" id="testimonialCarousel">
-          @foreach ($ulasan as $item)
+          @foreach ($selectedUlasans as $item)
             <div class="item">
               <div class="testimonial-card shadow-sm p-4 rounded">
                 <div class="d-flex justify-content-between align-items-center mb-3">
@@ -721,11 +688,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 <hr>
                 <div class="profile d-flex align-items-center">
                   <div class="image me-3">
-                    <img src="{{ $item->profile_photo_url ?? '/img/default-avatar.png' }}" alt="profile" class="rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">
+                    <img src="{{ asset('images/default-avatar.png') }}" 
+                         alt="profile" 
+                         class="rounded-circle" 
+                         style="width: 50px; height: 50px; object-fit: cover;">
                   </div>
                   <div class="position">
                     <h5 class="font-jakarta mb-1">{{ $item->author_name }}</h5>
-                    <p class="text-muted mb-0 small">{{ date("Y-m-d", $item->time) }}</p>
+                    <p class="text-muted mb-0 small">
+                      {{ \Carbon\Carbon::parse($item->created_at)->format('d M Y') }}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -734,141 +706,90 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
       @else
         <div class="col-12 text-center py-5">
-          <img src="/img/ALT 4.png" alt="no-review" class="img-fluid mb-3" style="max-width: 200px;">
+          <img src="{{ asset('images/no-review.png') }}" alt="no-review" class="img-fluid mb-3" style="max-width: 200px;">
           <h3 class="fw-bold">Belum ada testimoni yang ditampilkan</h3>
-          <p>Admin belum memilih testimoni untuk ditampilkan ke publik.</p>
+          <p class="text-muted">Admin belum memilih testimoni untuk ditampilkan.</p>
         </div>
       @endif
     </div>
   </div>
 </div>
-<!-- End : Testimonial -->
 
-<!-- JavaScript untuk Sort Testimonial -->
+<style>
+.testimonial-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+.owl-nav button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50% !important;
+    background: white !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.owl-nav button.owl-prev {
+    left: -20px;
+}
+
+.owl-nav button.owl-next {
+    right: -20px;
+}
+
+.owl-nav button i {
+    font-size: 18px;
+    color: #4F46E5;
+}
+
+.owl-nav button:hover {
+    background: #4F46E5 !important;
+}
+
+.owl-nav button:hover i {
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .owl-nav {
+        display: none;
+    }
+}
+</style>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const sortSelect = document.getElementById('sortSelect');
     const testimonialCarousel = document.getElementById('testimonialCarousel');
     
-    // Data ulasan dari PHP (convert ke JavaScript)
-    let ulasanData = @json($ulasan ?? []);
-    
-    if (sortSelect && testimonialCarousel && ulasanData.length > 0) {
-        function renderTestimonials(data) {
-            let html = '';
-            data.forEach(function(item) {
-                let stars = '';
-                for (let i = 1; i <= 5; i++) {
-                    stars += `<i class="fas fa-star ${i <= item.rating ? 'text-warning' : 'text-muted'}"></i>`;
-                }
-                
-                const profilePhoto = item.profile_photo_url || '/img/default-avatar.png';
-                const authorName = item.author_name || 'Anonymous';
-                const formattedDate = new Date(item.time * 1000).toLocaleDateString('id-ID');
-                
-                html += `
-                    <div class="item">
-                        <div class="testimonial-card shadow-sm p-4 rounded">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <div class="rating">${stars}</div>
-                                <span class="badge bg-warning text-dark">
-                                    <i class="fas fa-star me-1"></i>${item.rating}
-                                </span>
-                            </div>
-                            <p class="testimonial-text mb-4">${item.text}</p>
-                            <hr>
-                            <div class="profile d-flex align-items-center">
-                                <div class="image me-3">
-                                    <img src="${profilePhoto}" alt="profile" class="rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">
-                                </div>
-                                <div class="position">
-                                    <h5 class="font-jakarta mb-1">${authorName}</h5>
-                                    <p class="text-muted mb-0 small">${formattedDate}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            });
-            
-            testimonialCarousel.innerHTML = html;
-            
-            // Reinitialize Owl Carousel jika ada
-            if (typeof $ !== 'undefined' && $.fn.owlCarousel) {
-                $(testimonialCarousel).trigger('destroy.owl.carousel');
-                $(testimonialCarousel).owlCarousel({
-                    loop: true,
-                    margin: 20,
-                    nav: true,
-                    dots: true,
-                    autoplay: true,
-                    autoplayTimeout: 5000,
-                    responsive: {
-                        0: { items: 1 },
-                        768: { items: 2 },
-                        1024: { items: 3 }
-                    }
-                });
-            }
-        }
-        
-        function sortTestimonials(sortType) {
-            let sortedData = [...ulasanData];
-            
-            if (sortType === 'newest') {
-                sortedData.sort((a, b) => b.time - a.time);
-            } else if (sortType === 'oldest') {
-                sortedData.sort((a, b) => a.time - b.time);
-            }
-            
-            renderTestimonials(sortedData);
-        }
-        
-        // Event listener untuk perubahan sorting
-        sortSelect.addEventListener('change', function() {
-            sortTestimonials(this.value);
+    if (testimonialCarousel && typeof $ !== 'undefined' && $.fn.owlCarousel) {
+        $(testimonialCarousel).owlCarousel({
+            loop: true,
+            margin: 20,
+            nav: true,
+            dots: true,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: true,
+            responsive: {
+                0: { items: 1 },
+                768: { items: 2 },
+                1024: { items: 3 }
+            },
+            navText: [
+                '<i class="fas fa-chevron-left"></i>',
+                '<i class="fas fa-chevron-right"></i>'
+            ]
         });
-        
-        // Initial render dengan sort terbaru
-        sortTestimonials('newest');
     }
 });
 </script>
-
-  <!-- Question -->
-  <!-- <div class="question" id="question">
-    <div class="container">
-      <div class="row justify-content-xl-between ">
-        <div class="col-xl-3 align-self-center">
-          <div class="question-desc">
-            <h5 class="font-jakarta">Hal yang sering Ditanyakan</h5>
-          </div>
-        </div>
-        <div class="col-xl-6">
-          <div class="question-accordion">
-            <div class="accordion " id="accordionExample">
-              @foreach ($faq as $item)
-              <div class="accordion-item">
-                <h2 class="accordion-header">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseOne{{$item->id}}" aria-expanded="true" aria-controls="collapseOne">
-                    {{$item->judul}}
-                  </button>
-                </h2>
-                <div id="collapseOne{{$item->id}}" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    {{$item->isi}}
-                  </div>
-                </div>
-              </div>
-              @endforeach
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-  <!-- End : Question -->
 
   <!-- Devices -->
   <!-- <div class="devices mt-7rem">
@@ -993,7 +914,6 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
   <!-- End : consultation -->
 </main>
-
 <!-- Modal HTML -->
 <div class="modal fade" id="mapsModal" tabindex="-1" role="dialog" aria-labelledby="mapsModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
