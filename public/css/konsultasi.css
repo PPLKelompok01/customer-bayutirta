@@ -1,0 +1,204 @@
+/* Konsultasi Pages Styling */
+
+/* Header Styling */
+.konsultasi-header {
+    background: linear-gradient(135deg, #0056b3 0%, #007bff 100%);
+    padding: 60px 0;
+    margin-bottom: 40px;
+    border-radius: 0 0 50px 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.konsultasi-header h1 {
+    color: #fff;
+    font-weight: 700;
+    font-size: 2.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.konsultasi-header p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Card Styling */
+.card {
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.card-header {
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 1.25rem 2rem;
+}
+
+.card-header h5 {
+    margin-bottom: 0;
+    font-weight: 600;
+}
+
+/* Button Styling */
+.btn {
+    padding: 0.6rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #4F46E5 0%, #635ddf 100%);
+    border: none;
+    box-shadow: 0 4px 10px rgb(76, 65, 224)
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #4F46E5 0%, #635ddf 100%);
+    box-shadow: 0 6px 15px rgb(72, 69, 230);
+    transform: translateY(-2px);
+}
+
+.btn-outline-primary {
+    border: 2px solid #007bff;
+    color: #007bff;
+}
+
+.btn-outline-primary:hover {
+    background-color: #007bff;
+    color: white;
+    box-shadow: 0 4px 10px rgb(69, 85, 228);
+}
+
+.btn-outline-danger {
+    border: 2px solid #dc3545;
+    color: #dc3545;
+}
+
+.btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: white;
+    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.2);
+}
+
+/* Form Styling */
+.form-control {
+    border-radius: 10px;
+    padding: 0.75rem 1.25rem;
+    border: 1px solid #e1e5eb;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s;
+}
+
+.form-control:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+label {
+    font-weight: 500;
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+
+/* Login/Register Specific */
+.login-content, .register-content {
+    margin-bottom: 60px;
+}
+
+/* Dashboard Specific */
+.dashboard-content {
+    margin-bottom: 60px;
+}
+
+.list-group-item {
+    border: none;
+    padding: 1rem 1.5rem;
+    transition: all 0.3s;
+}
+
+.list-group-item-action:hover {
+    background-color: #f8f9fa;
+    color: #afafaf;
+}
+
+.list-group-item.active {
+    background: linear-gradient(135deg, #6058f3 0%, #7871f7  100%);
+    border-color: #007bff;
+}
+
+.text-danger {
+    color: #dc3545;
+}
+
+/* Profile Section */
+.user-avatar {
+    width: 60px;
+    height: 60px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Alert Styling */
+.alert {
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.alert-danger {
+    background-color: #fff5f5;
+    border-color: #ffebee;
+    color: #c62828;
+}
+
+.alert-info {
+    background-color: #e3f2fd;
+    border-color: #bbdefb;
+    color: #0d47a1;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.card, .konsultasi-header, .form-control, .btn {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .konsultasi-header {
+        padding: 40px 0;
+        margin-bottom: 30px;
+    }
+    
+    .konsultasi-header h1 {
+        font-size: 2rem;
+    }
+    
+    .card-body {
+        padding: 1.5rem;
+    }
+} 
