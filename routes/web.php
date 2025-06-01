@@ -39,6 +39,7 @@ Route::get('/articledetail/{id}', [ArticleController::class, 'articleDetail']);
 Route::get('/articledetail/suka/{id}', [ArticleController::class, 'articleSuka']);
 Route::post('/articledetail/komentar/{id}', [ArticleController::class, 'articleKomentar']);
 route::get('/status', [Controller::class, 'status']);
+Route::get('/faq', [FAQController::class, 'index'])->name('faq.index');
 
 Route::get('/lowongan', [LowonganController::class, 'index']);
 Route::get('/lowongandetail/{id}', [LowonganController::class, 'lowongandetail']);
