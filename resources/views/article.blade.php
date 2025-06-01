@@ -29,146 +29,156 @@
           @if (isset($artikel))
           @foreach ($artikel as $item)
           <div class="col-xl-4">
-          <a href="{{ url("/articledetail/$item->id_artikel") }}" class="text-decoration-none">  <div class="card border-0 ">
-            <img style="height: 270px; width: 415px; object-fit: cover; border-radius:20px" src="images/artikel/{{$item->foto}}" onerror="this.src='images/articledetail.png'" alt="images/articledetail.png">
+            <a href="{{ url("/articledetail/$item->id_artikel") }}" class="text-decoration-none">
+              <div class="card border-0 ">
+                <img style="height: 270px; width: 415px; object-fit: cover; border-radius:20px" src="{{ asset('images/artikel/'.$item->foto) }}" onerror="this.src='images/articledetail.png'" alt="images/articledetail.png">
+                <div class="card-body p-0">
+                  <h5 class="card-title font-jakarta">{{$item->judul}}</h5>
+                  <p class="card-text font-jakarta">{{$item->isi}}</p>
+                </div>
+                <div class="card-profile">
+                  <div class="image">
+                    <img src="{{ url('images/profiledev1.png') }}" alt="profile">
+                  </div>
+                  <div class="position">
+                    <h5>{{$item->nama_penulis}}</h5>
+                    <p>{{$item->title_penulis}}</p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          @endforeach
+          @else
+          <div class="picture">
+            <img src="/img/ALT 4.png" alt="noservice">
+          </div>
+          <div class="message text-center">
+            <h3 class="fw-bold">Belum ada layanan yang dibuat</h3>
+            <p>Buat dan atur layanan yang bisa diakses pelangganmu!</p>
+            <p>Klik button “Tambah Layanan” di atas kanan halaman ini</p>
+          </div>
+          @endif
+          {{-- <div class="col-xl-4">
+            <a href="{{ url('/articledetail') }}" class="text-decoration-none"> <div class="card border-0 ">
+            <img src="{{ url('images/devices2.png') }}" class="card-img-top" alt="devices">
             <div class="card-body p-0">
-              <h5 class="card-title font-jakarta">{{$item->judul}}</h5>
-              <p class="card-text font-jakarta">{{$item->isi}}</p>
+              <h5 class="card-title font-jakarta">Terhubung dengan HP Off</h5>
+              <p class="card-text font-jakarta">Handphone menjadi alat yang wajib untuk dibawa kemana mana untuk
+                saat ini,
+                maka
+                dari itu per...</p>
             </div>
             <div class="card-profile">
               <div class="image">
                 <img src="{{ url('images/profiledev1.png') }}" alt="profile">
               </div>
               <div class="position">
-                <h5>{{$item->nama_penulis}}</h5>
-                <p>{{$item->title_penulis}}</p>
+                <h5>Ralph Edwards</h5>
+                <p>5 min read</p>
               </div>
             </div>
           </div></a>
-          </div>
-          @endforeach
-        @else
-        <div class="picture">
-                <img src="/img/ALT 4.png" alt="noservice">
-            </div>
-            <div class="message text-center">
-                <h3 class="fw-bold">Belum ada layanan yang dibuat</h3>
-                <p>Buat dan atur layanan yang bisa diakses pelangganmu!</p>
-                <p>Klik button “Tambah Layanan” di atas kanan halaman ini</p>
-            </div>
-        @endif
-          {{-- <div class="col-xl-4">
-            <a href="{{ url('/articledetail') }}" class="text-decoration-none"> <div class="card border-0 ">
-              <img src="{{ url('images/devices2.png') }}" class="card-img-top" alt="devices">
-              <div class="card-body p-0">
-                <h5 class="card-title font-jakarta">Terhubung dengan HP Off</h5>
-                <p class="card-text font-jakarta">Handphone menjadi alat yang wajib untuk dibawa kemana mana untuk
-                  saat ini,
-                  maka
-                  dari itu per...</p>
-              </div>
-              <div class="card-profile">
-                <div class="image">
-                  <img src="{{ url('images/profiledev1.png') }}" alt="profile">
-                </div>
-                <div class="position">
-                  <h5>Ralph Edwards</h5>
-                  <p>5 min read</p>
-                </div>
-              </div>
-            </div></a>
-          </div>
-          <div class="col-xl-4">
-            <a href="{{ url('/articledetail') }}" class="text-decoration-none">  <div class="card border-0 ">
-              <img src="{{ url('images/devices3.png') }}" class="card-img-top" alt="devices">
-              <div class="card-body p-0">
-                <h5 class="card-title font-jakarta">Merawat HP agar Awet</h5>
-                <p class="card-text font-jakarta">Handphone menjadi alat yang wajib untuk dibawa kemana mana untuk
-                  saat ini,
-                  maka
-                  dari itu per...</p>
-              </div>
-              <div class="card-profile">
-                <div class="image">
-                  <img src="{{ url('images/profiledev1.png') }}" alt="profile">
-                </div>
-                <div class="position">
-                  <h5>Ralph Edwards</h5>
-                  <p>5 min read</p>
-                </div>
-              </div>
-            </div></a>
-          
-          </div>
-          <div class="col-xl-4">
-             <a href="{{ url('/articledetail') }}" class="text-decoration-none">  <div class="card border-0 ">
-              <img src="{{ url('images/devices3.png') }}" class="card-img-top" alt="devices">
-              <div class="card-body p-0">
-                <h5 class="card-title font-jakarta">Merawat HP agar Awet</h5>
-                <p class="card-text font-jakarta">Handphone menjadi alat yang wajib untuk dibawa kemana mana untuk
-                  saat ini,
-                  maka
-                  dari itu per...</p>
-              </div>
-              <div class="card-profile">
-                <div class="image">
-                  <img src="{{ url('images/profiledev1.png') }}" alt="profile">
-                </div>
-                <div class="position">
-                  <h5>Ralph Edwards</h5>
-                  <p>5 min read</p>
-                </div>
-              </div>
-            </div></a>
-          
-          </div>
-          <div class="col-xl-4">
-             <a href="{{ url('/articledetail') }}" class="text-decoration-none"> <div class="card border-0 ">
-              <img src="{{ url('images/devices3.png') }}" class="card-img-top" alt="devices">
-              <div class="card-body p-0">
-                <h5 class="card-title font-jakarta">Merawat HP agar Awet</h5>
-                <p class="card-text font-jakarta">Handphone menjadi alat yang wajib untuk dibawa kemana mana untuk
-                  saat ini,
-                  maka
-                  dari itu per...</p>
-              </div>
-              <div class="card-profile">
-                <div class="image">
-                  <img src="{{ url('images/profiledev1.png') }}" alt="profile">
-                </div>
-                <div class="position">
-                  <h5>Ralph Edwards</h5>
-                  <p>5 min read</p>
-                </div>
-              </div>
-            </div></a>
-           
-          </div>
-          <div class="col-xl-4">
-             <a href="{{ url('/articledetail') }}" class="text-decoration-none"><div class="card border-0 ">
-              <img src="{{ url('images/devices3.png') }}" class="card-img-top" alt="devices">
-              <div class="card-body p-0">
-                <h5 class="card-title font-jakarta">Merawat HP agar Awet</h5>
-                <p class="card-text font-jakarta">Handphone menjadi alat yang wajib untuk dibawa kemana mana untuk
-                  saat ini,
-                  maka
-                  dari itu per...</p>
-              </div>
-              <div class="card-profile">
-                <div class="image">
-                  <img src="{{ url('images/profiledev1.png') }}" alt="profile">
-                </div>
-                <div class="position">
-                  <h5>Ralph Edwards</h5>
-                  <p>5 min read</p>
-                </div>
-              </div>
-            </div></a>
-            
-          </div> --}}
         </div>
+        <div class="col-xl-4">
+          <a href="{{ url('/articledetail') }}" class="text-decoration-none">
+            <div class="card border-0 ">
+              <img src="{{ url('images/devices3.png') }}" class="card-img-top" alt="devices">
+              <div class="card-body p-0">
+                <h5 class="card-title font-jakarta">Merawat HP agar Awet</h5>
+                <p class="card-text font-jakarta">Handphone menjadi alat yang wajib untuk dibawa kemana mana untuk
+                  saat ini,
+                  maka
+                  dari itu per...</p>
+              </div>
+              <div class="card-profile">
+                <div class="image">
+                  <img src="{{ url('images/profiledev1.png') }}" alt="profile">
+                </div>
+                <div class="position">
+                  <h5>Ralph Edwards</h5>
+                  <p>5 min read</p>
+                </div>
+              </div>
+            </div>
+          </a>
+
+        </div>
+        <div class="col-xl-4">
+          <a href="{{ url('/articledetail') }}" class="text-decoration-none">
+            <div class="card border-0 ">
+              <img src="{{ url('images/devices3.png') }}" class="card-img-top" alt="devices">
+              <div class="card-body p-0">
+                <h5 class="card-title font-jakarta">Merawat HP agar Awet</h5>
+                <p class="card-text font-jakarta">Handphone menjadi alat yang wajib untuk dibawa kemana mana untuk
+                  saat ini,
+                  maka
+                  dari itu per...</p>
+              </div>
+              <div class="card-profile">
+                <div class="image">
+                  <img src="{{ url('images/profiledev1.png') }}" alt="profile">
+                </div>
+                <div class="position">
+                  <h5>Ralph Edwards</h5>
+                  <p>5 min read</p>
+                </div>
+              </div>
+            </div>
+          </a>
+
+        </div>
+        <div class="col-xl-4">
+          <a href="{{ url('/articledetail') }}" class="text-decoration-none">
+            <div class="card border-0 ">
+              <img src="{{ url('images/devices3.png') }}" class="card-img-top" alt="devices">
+              <div class="card-body p-0">
+                <h5 class="card-title font-jakarta">Merawat HP agar Awet</h5>
+                <p class="card-text font-jakarta">Handphone menjadi alat yang wajib untuk dibawa kemana mana untuk
+                  saat ini,
+                  maka
+                  dari itu per...</p>
+              </div>
+              <div class="card-profile">
+                <div class="image">
+                  <img src="{{ url('images/profiledev1.png') }}" alt="profile">
+                </div>
+                <div class="position">
+                  <h5>Ralph Edwards</h5>
+                  <p>5 min read</p>
+                </div>
+              </div>
+            </div>
+          </a>
+
+        </div>
+        <div class="col-xl-4">
+          <a href="{{ url('/articledetail') }}" class="text-decoration-none">
+            <div class="card border-0 ">
+              <img src="{{ url('images/devices3.png') }}" class="card-img-top" alt="devices">
+              <div class="card-body p-0">
+                <h5 class="card-title font-jakarta">Merawat HP agar Awet</h5>
+                <p class="card-text font-jakarta">Handphone menjadi alat yang wajib untuk dibawa kemana mana untuk
+                  saat ini,
+                  maka
+                  dari itu per...</p>
+              </div>
+              <div class="card-profile">
+                <div class="image">
+                  <img src="{{ url('images/profiledev1.png') }}" alt="profile">
+                </div>
+                <div class="position">
+                  <h5>Ralph Edwards</h5>
+                  <p>5 min read</p>
+                </div>
+              </div>
+            </div>
+          </a>
+
+        </div> --}}
       </div>
     </div>
+  </div>
   </div>
   <!-- End : devices -->
   <!-- Reservasi -->
