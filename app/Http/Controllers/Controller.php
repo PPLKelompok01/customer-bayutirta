@@ -31,13 +31,13 @@ class Controller extends BaseController
         //             'layanan' => $layanans,
         //             'artikel' => $artikel,
         //             'ulasan' => $ulasan]);
-        return view('home',[
+        return view('home', [
             'layanan' => $layanans,
             'artikel' => $artikel,
-            'faq'=> $faqs,
+            'faq' => $faqs,
             'pilihan' => $layanan,
             'ulasan' => $response->result->reviews
-            ]);
+        ]);
     }
 
     public function addReservasi(Request $request)
@@ -48,15 +48,16 @@ class Controller extends BaseController
             'name' => 'required|max:255',
             'no_telp' => 'required',
             'alamat' => 'required',
-            'merk_hp' => 'required'
+            'merk_hp' => 'required',
+            'date_reservasi' => 'required',
         ]);
 
-        $id_layanan = Layanan::where('nama_layanan','=', $request->layanan)->first();
+        $id_layanan = Layanan::where('nama_layanan', '=', $request->layanan)->first();
         // dd($id_layanan);
 
         if (isset($_FILES["foto"]) && !empty($_FILES["foto"]["name"])) {
-            $file= $request->file('foto');
-            $filename= date('YmdHi').$file->getClientOriginalName()[0];
+            $file = $request->file('foto');
+            $filename = date('YmdHi') . $file->getClientOriginalName()[0];
             $file->move(public_path('images/reservasi'), $filename);
             $post = new Reservasi([
                 'id_layanan' => $id_layanan->id_layanan,
@@ -67,21 +68,23 @@ class Controller extends BaseController
                 'keterangan' => $request['keterangan'],
                 'foto' => $filename,
                 'status' => "Belum Dikonfirmasi",
+                'date_reservasi' => $validatedData['date_reservasi'],
                 'created_at' => now()
             ]);
-        }else{
+        } else {
 
-        // Create a new Post instance with the validated data
-        $post = new Reservasi([
-            'id_layanan' => $id_layanan->id_layanan,
-            'name' => $validatedData['name'],
-            'no_telp' => $validatedData['no_telp'],
-            'alamat' => $validatedData['alamat'],
-            'merk_hp' => $validatedData['merk_hp'],
-            'keterangan' => $request['keterangan'],
-            'status' => "Belum Dikonfirmasi",
-            'created_at' => now()
-        ]);
+            // Create a new Post instance with the validated data
+            $post = new Reservasi([
+                'id_layanan' => $id_layanan->id_layanan,
+                'name' => $validatedData['name'],
+                'no_telp' => $validatedData['no_telp'],
+                'alamat' => $validatedData['alamat'],
+                'merk_hp' => $validatedData['merk_hp'],
+                'keterangan' => $request['keterangan'],
+                'status' => "Belum Dikonfirmasi",
+                'date_reservasi' => $validatedData['date_reservasi'],
+                'created_at' => now()
+            ]);
         }
 
         $post->save(); // Save the new post to the database
@@ -90,7 +93,6 @@ class Controller extends BaseController
         //     'message' => 'Data Berhasil Dikirim!',
         // ]); // Return the new post as JSON
         return redirect()->back()->with('message', 'Reservasi kamu berhasil terkirim.');
-
     }
 
 
@@ -100,14 +102,14 @@ class Controller extends BaseController
         // echo $request->status;
         $url = "https://rbm-borneo.com/Store/BAYUTIRTA/cekresi";
 
-        $curl =curl_init();
+        $curl = curl_init();
 
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_POST, true);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
         $data = array(
-        'invoice' => $request->status
+            'invoice' => $request->status
         );
 
         curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
@@ -117,6 +119,5 @@ class Controller extends BaseController
 
 
         return $response;
-
     }
 }

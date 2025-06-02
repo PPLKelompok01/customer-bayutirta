@@ -188,4 +188,8 @@
     </script>
 </body>
 
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 38de90def996bf8e1a8af5f25e30d06a72a45a16
