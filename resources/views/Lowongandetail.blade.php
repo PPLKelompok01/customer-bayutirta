@@ -10,7 +10,7 @@
       <div class="row align-items-lg-center">
         <div class="col-xl-5">
           <div class="service-detail-image">
-            <img src="{{url('images/lowongan/'.$detail->foto)}}" alt="foto">
+            <img src="{{ asset('images/lowongan/'.$detail->foto) }}" style="max-height: 400px; border-radius: 20px">
           </div>
         </div>
         <div class="col-xl-5">
