@@ -49,7 +49,7 @@
                         <a class="nav-link" href="/#testimonial">Testimonial</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/#question">FAQ</a>
+                        <a class="nav-link" href="/faq">FAQ</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('/article') }}">Artikel</a>
@@ -161,7 +161,7 @@
                 <div class="row justify-content-xl-between">
                     <div class="col-xl-3">
                         <div class="copyright">
-                            <p>© 2023, All Rights Reserved</p>
+                            <p>© 2025, All Rights Reserved</p>
                         </div>
                     </div>
                 </div>
@@ -175,14 +175,14 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
     </script>
     <script>
-    $(document).ready(function() {
-        $('.owl-carousel').owlCarousel({
-            loop: true,
-            margin: 10,
-            nav: true,
+        $(document).ready(function() {
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: true,
 
-        })
-    });
+            })
+        });
     </script>
 </body>
 

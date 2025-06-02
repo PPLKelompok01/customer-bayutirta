@@ -676,101 +676,203 @@
   <!-- Testimonial -->
   <div class="testimonial" id="testimonial">
     <div class="container">
+      @if(isset($ulasan))
+      <!-- Debug info -->
+      <div style="display: none;">
+        {{ print_r($ulasan) }}
+      </div>
+      @endif
       <div class="row justify-content-xl-center">
         <div class="col-xl-6">
           <div class="testimonial-title">
             <h5 class="font-jakarta">Apa kata Mereka</h5>
-            <p class="font-jakarta">Ini adalah beberapa testimoni dari pelanggan kami setelah memperbaiki handphone
-              nya di Bayu Tirta Cell</p>
+            <p class="font-jakarta">Ini adalah beberapa testimoni dari pelanggan kami setelah memperbaiki handphone nya di Bayu Tirta Cell</p>
           </div>
         </div>
       </div>
-      <div class="row justify-content-xl-center text-center">
-        <div class="testimonial-carousel owl-carousel owl-theme">
-          @if (isset($ulasan))
-          {{-- {{count($ulasan)}} --}}
-          {{-- {{print_r($ulasan)}} --}}
-          {{-- {{dd($ulasan)}} --}}
-          @foreach ($ulasan as $item)
 
-          {{-- @foreach ($item as $a)
-          {{dd($a)}}
-          <br>
-          <h1>batass</h1>
-          @endforeach --}}
-          {{-- {{print_r($item)}} --}}
-          {{-- <br>
-          <h1>batass</h1> --}}
-          {{-- {{$item->rating}} --}}
-          {{-- {{$item->author_name}}
-          {{$item->text}}
-          {{$item->created_at}} --}}
-          <div class="item text-start">
-            <span class="font-jakarta title">bintang {{$item->rating}}</span>
-            <p class="font-jakarta desc">{{$item->text}}</p>
-            <hr>
+      <!-- Review Button -->
+      <div class="row justify-content-center mb-4">
+        <div class="col-12 text-center">
+          <a href="https://www.google.com/maps/place/BAYU+TIRTA+HANDPHONE+%7C+Jual+Beli+HP+%7C+Service+HP+%7C+Aksesoris+HP/@-8.0649063,112.596536,17z/data=!3m1!4b1!4m6!3m5!1s0x2e789d94d64083fb:0xaf6a2d12293729e6!8m2!3d-8.0649063!4d112.5991109!16s%2Fg%2F11b75knbmv?entry=ttu&g_ep=EgoyMDI1MDUyOC4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank"
+            class="btn btn-primary btn-lg px-4 py-2 rounded-pill shadow-sm">
+            <i class="fas fa-star me-2"></i>
+            Berikan Ulasan Anda
+          </a>
+          <p class="mt-2 mb-0 small text-muted">
+            Bagikan pengalaman Anda dengan layanan kami di Google Maps
+          </p>
+        </div>
+      </div>
 
-            <div class="profile">
-              <div class="image">
-                <img src="{{$item->profile_photo_url}}" alt="profile">
+      <!-- Sort Options -->
+      @if (isset($ulasan) && count($ulasan) > 0)
+      <div class="row justify-content-center mb-4">
+        <div class="col-lg-8 col-md-10">
+          <div class="card shadow-sm border-0">
+            <div class="card-body py-3">
+              <div class="d-flex justify-content-between align-items-center flex-wrap">
+                <div class="d-flex align-items-center mb-2 mb-md-0">
+                  <i class="fas fa-comments text-primary me-2"></i>
+                  <span class="fw-bold">{{ count($ulasan) }} Testimoni</span>
+                </div>
+                <div class="d-flex align-items-center">
+                  <label for="sortSelect" class="form-label me-3 mb-0 fw-medium">
+                    <i class="fas fa-sort me-1 text-secondary"></i>Urutkan:
+                  </label>
+                  <select id="sortSelect" class="form-select form-select-sm" style="width: 130px;">
+                    <option value="newest">Terbaru</option>
+                    <option value="oldest">Terlama</option>
+                  </select>
+                </div>
               </div>
-              <div class="position">
-                <h5 class="font-jakarta">{{$item->author_name}}</h5>
-                <p class="font-jakarta">{{date("Y-m-d",$item->time);}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      @endif
+
+      <div class="row justify-content-xl-center">
+        @if (isset($ulasan) && count($ulasan) > 0)
+        <div class="testimonial-carousel owl-carousel owl-theme" id="testimonialCarousel">
+          @foreach ($ulasan as $item)
+          <div class="item">
+            <div class="testimonial-card shadow-sm p-4 rounded bg-red">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="rating">
+                  @for ($i = 1; $i <= 5; $i++)
+                    <i class="fas fa-star {{ $i <= $item->rating ? 'text-warning' : 'text-muted' }}"></i>
+                    @endfor
+                </div>
+                <span class="badge bg-warning text-dark">
+                  <i class="fas fa-star me-1"></i>{{ $item->rating }}
+                </span>
+              </div>
+              <p class="testimonial-text mb-4">{{ $item->text }}</p>
+              <hr>
+              <div class="profile d-flex align-items-center">
+                <div class="image me-3">
+                  <img src="{{ $item->profile_photo_url ?? '/img/default-avatar.png' }}" alt="profile" class="rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">
+                </div>
+                <div class="position">
+                  <h5 class="font-jakarta mb-1">{{ $item->author_name }}</h5>
+                  <p class="text-muted mb-0 small">{{ date("Y-m-d", $item->time) }}</p>
+                </div>
               </div>
             </div>
           </div>
           @endforeach
-          @else
-          <div class="picture">
-            <img src="/img/ALT 4.png" alt="noservice">
-          </div>
-          <div class="message text-center">
-            <h3 class="fw-bold">Belum ada layanan yang dibuat</h3>
-            <p>Buat dan atur layanan yang bisa diakses pelangganmu!</p>
-            <p>Klik button “Tambah Layanan” di atas kanan halaman ini</p>
-          </div>
-          @endif
-
-          {{-- <div class="item text-start">
-            <span class="font-jakarta title">Satisfied User Here!</span>
-            <p class="font-jakarta desc">Never thought that with Spend.In managing my business expenses is so easy!
-              Been using this platform for 3 months and still counting!</p>
-            <hr>
-
-            <div class="profile">
-              <div class="image">
-                  <img src="{{ url('images/profile2.png') }}" alt="profile">
         </div>
-        <div class="position">
-          <h5 class="font-jakarta">Natasha Romanoff</h5>
-          <p class="font-jakarta">Black Widow</p>
+        @else
+        <div class="col-12 text-center py-5">
+          <img src="/img/ALT 4.png" alt="no-review" class="img-fluid mb-3" style="max-width: 200px;">
+          <h3 class="fw-bold">Belum ada testimoni yang ditampilkan</h3>
+          <p>Admin belum memilih testimoni untuk ditampilkan ke publik.</p>
         </div>
+        @endif
       </div>
     </div>
-    <div class="item text-start">
-      <span class="font-jakarta title">No doubt, Spend.In is the best!</span>
-      <p class="font-jakarta desc">“The best”! That’s what I want to say to this platform, didn’t know that
-        there’s a platform to help you manage your business expenses like this! Very recommended to you who
-        have a big business!</p>
-      <hr>
-      <div class="profile">
-        <div class="image">
-          <img src="{{ url('images/profile3.png') }}" alt="profile">
-        </div>
-        <div class="position">
-          <h5 class="font-jakarta">Moritika Kazuki</h5>
-          <p class="font-jakarta">Finance Manager at Mangan</p>
-        </div>
-      </div>
-    </div> --}}
-
-  </div>
-  </div>
-  </div>
   </div>
   <!-- End : Testimonial -->
-  >
+
+  <!-- JavaScript untuk Sort Testimonial -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const sortSelect = document.getElementById('sortSelect');
+      const testimonialCarousel = document.getElementById('testimonialCarousel');
+
+      // Data ulasan dari PHP (convert ke JavaScript)
+      let ulasanData = @json($ulasan ?? []);
+
+      if (sortSelect && testimonialCarousel && ulasanData.length > 0) {
+        function renderTestimonials(data) {
+          let html = '';
+          data.forEach(function(item) {
+            let stars = '';
+            for (let i = 1; i <= 5; i++) {
+              stars += `<i class="fas fa-star ${i <= item.rating ? 'text-warning' : 'text-muted'}"></i>`;
+            }
+
+            const profilePhoto = item.profile_photo_url || '/img/default-avatar.png';
+            const authorName = item.author_name || 'Anonymous';
+            const formattedDate = new Date(item.time * 1000).toLocaleDateString('id-ID');
+
+            html += `
+                    <div class="item">
+                        <div class="testimonial-card shadow-sm p-4 rounded">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="rating">${stars}</div>
+                                <span class="badge bg-warning text-dark">
+                                    <i class="fas fa-star me-1"></i>${item.rating}
+                                </span>
+                            </div>
+                            <p class="testimonial-text mb-4">${item.text}</p>
+                            <hr>
+                            <div class="profile d-flex align-items-center">
+                                <div class="image me-3">
+                                    <img src="${profilePhoto}" alt="profile" class="rounded-circle" style="width: 50px; height: 50px; object-fit: cover;">
+                                </div>
+                                <div class="position">
+                                    <h5 class="font-jakarta mb-1">${authorName}</h5>
+                                    <p class="text-muted mb-0 small">${formattedDate}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+          });
+
+          testimonialCarousel.innerHTML = html;
+
+          // Reinitialize Owl Carousel jika ada
+          if (typeof $ !== 'undefined' && $.fn.owlCarousel) {
+            $(testimonialCarousel).trigger('destroy.owl.carousel');
+            $(testimonialCarousel).owlCarousel({
+              loop: true,
+              margin: 20,
+              nav: true,
+              dots: true,
+              autoplay: true,
+              autoplayTimeout: 5000,
+              responsive: {
+                0: {
+                  items: 1
+                },
+                768: {
+                  items: 2
+                },
+                1024: {
+                  items: 3
+                }
+              }
+            });
+          }
+        }
+
+        function sortTestimonials(sortType) {
+          let sortedData = [...ulasanData];
+
+          if (sortType === 'newest') {
+            sortedData.sort((a, b) => b.time - a.time);
+          } else if (sortType === 'oldest') {
+            sortedData.sort((a, b) => a.time - b.time);
+          }
+
+          renderTestimonials(sortedData);
+        }
+
+        // Event listener untuk perubahan sorting
+        sortSelect.addEventListener('change', function() {
+          sortTestimonials(this.value);
+        });
+
+        // Initial render dengan sort terbaru
+        sortTestimonials('newest');
+      }
+    });
+  </script>
+
   <!-- Question -->
   <!-- <div class="question" id="question">
     <div class="container">
